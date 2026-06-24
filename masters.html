@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>МАСТЕРА — Атлас исчезающих ремесел</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="page-header">
+        <a href="index.html" class="back-link">← НА ГЛАВНУЮ</a>
+        <h1>МАСТЕРА</h1>
+        <p class="subtitle">Те, кто хранит тепло ручного труда</p>
+    </header>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="все">ВСЕ</button>
+        <button class="filter-btn" data-filter="печатное дело">ПЕЧАТНОЕ ДЕЛО</button>
+        <button class="filter-btn" data-filter="оптика">ОПТИКА</button>
+        <button class="filter-btn" data-filter="текстиль">ТЕКСТИЛЬ</button>
+        <button class="filter-btn" data-filter="часовое дело">ЧАСОВОЕ ДЕЛО</button>
+    </div>
+
+    <div class="masters-grid">
+        <div class="master-card" data-id="1">
+            <div class="card-image-wrap">
+                <img src="aim/image5.jpg" alt="Иван Петров">
+            </div>
+            <div class="card-info">
+                <h3>Иван Петров</h3>
+                <p>Печатное дело</p>
+                <span class="card-year">1958</span>
+            </div>
+        </div>
+
+        <div class="master-card" data-id="2">
+            <div class="card-image-wrap">
+                <img src="aim/image6.jpg" alt="Елена Соколова">
+            </div>
+            <div class="card-info">
+                <h3>Елена Соколова</h3>
+                <p>Оптика</p>
+                <span class="card-year">1963</span>
+            </div>
+        </div>
+
+        <div class="master-card" data-id="3">
+            <div class="card-image-wrap">
+                <img src="aim/image7.jpg" alt="Михаил Волков">
+            </div>
+            <div class="card-info">
+                <h3>Михаил Волков</h3>
+                <p>Текстиль</p>
+                <span class="card-year">1971</span>
+            </div>
+        </div>
+
+        <div class="master-card" data-id="4">
+            <div class="card-image-wrap">
+                <img src="aim/image8.jpg" alt="Андрей Новиков">
+            </div>
+            <div class="card-info">
+                <h3>Андрей Новиков</h3>
+                <p>Часовое дело</p>
+                <span class="card-year">1965</span>
+            </div>
+        </div>
+
+        <div class="master-card" data-id="5">
+            <div class="card-image-wrap">
+                <img src="aim/image9.jpg" alt="Мария Федорова">
+            </div>
+            <div class="card-info">
+                <h3>Мария Федорова</h3>
+                <p>Печатное дело</p>
+                <span class="card-year">1980</span>
+            </div>
+        </div>
+
+        <div class="master-card" data-id="6">
+            <div class="card-image-wrap">
+                <img src="aim/image10.jpg" alt="Сергей Морозов">
+            </div>
+            <div class="card-info">
+                <h3>Сергей Морозов</h3>
+                <p>Оптика</p>
+                <span class="card-year">1968</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content" id="modal-content"></div>
+    </div>
+
+    <footer class="footer-brutal">
+        <div class="footer-brutal__left">ПРОЕКТ СОЗДАН<br>В 2026 ГОДУ</div>
+        <div class="footer-brutal__right">ВСЕ РЕМЕСЛА,<br>ПРЕДСТАВЛЕННЫЕ В АТЛАСЕ,<br>ЯВЛЯЮТСЯ ЧАСТЬЮ<br>МИРОВОГО НАСЛЕДИЯ</div>
+        <div class="footer-brutal__credit">САЙТ РАЗРАБОТАЛ <a href="#">Holl</a></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
