@@ -61,7 +61,7 @@ a:hover {
 .hero-title {
     position: relative;
     z-index: 1;
-    font-size: clamp(3rem, 10vw, 7rem);
+    font-size: clamp(2.5rem, 10vw, 7rem);
     font-weight: 700;
     color: var(--paper);
     text-align: center;
@@ -84,7 +84,7 @@ a:hover {
     gap: 50px;
     white-space: nowrap;
     animation: marquee 25s linear infinite;
-    font-size: 1.1rem;
+    font-size: clamp(0.8rem, 1.1vw, 1.1rem);
     letter-spacing: 2px;
     font-family: 'Courier New', monospace;
 }
@@ -155,14 +155,14 @@ a:hover {
     transform: translateX(-50%);
     z-index: 2;
     color: var(--paper);
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(1.5rem, 4vw, 3.5rem);
     font-weight: 700;
     letter-spacing: 8px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .quote-section {
-    padding: 80px 40px;
+    padding: clamp(40px, 8vw, 80px) clamp(20px, 4vw, 40px);
     background: var(--ink);
     color: var(--paper);
     text-align: center;
@@ -171,7 +171,7 @@ a:hover {
 }
 
 .quote-section blockquote {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
     font-style: italic;
     max-width: 1000px;
     margin: 0 auto;
@@ -183,7 +183,7 @@ a:hover {
 .page-header {
     background: var(--ink);
     color: var(--paper);
-    padding: 40px 40px 30px;
+    padding: clamp(20px, 4vw, 40px) clamp(20px, 4vw, 40px) clamp(20px, 3vw, 30px);
     border-bottom: 6px solid var(--accent);
     text-align: center;
     position: relative;
@@ -208,7 +208,7 @@ a:hover {
 }
 
 .page-header h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(2rem, 6vw, 4.5rem);
     letter-spacing: 10px;
     font-weight: 700;
     margin-bottom: 5px;
@@ -216,7 +216,7 @@ a:hover {
 
 .page-header .subtitle {
     font-family: 'Courier New', monospace;
-    font-size: 1rem;
+    font-size: clamp(0.7rem, 1vw, 1rem);
     letter-spacing: 3px;
     opacity: 0.7;
     font-style: italic;
@@ -227,19 +227,19 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    padding: 20px 40px;
+    padding: clamp(10px, 2vw, 20px) clamp(15px, 4vw, 40px);
     background: var(--paper);
     border-bottom: 4px solid var(--ink);
     justify-content: center;
 }
 
 .filter-btn {
-    padding: 10px 24px;
+    padding: clamp(6px, 1vw, 10px) clamp(10px, 2vw, 24px);
     background: transparent;
     border: 2px solid var(--ink);
     color: var(--ink);
     font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
+    font-size: clamp(0.55rem, 0.8vw, 0.8rem);
     font-weight: 700;
     letter-spacing: 2px;
     cursor: pointer;
@@ -276,14 +276,14 @@ a:hover {
     border-right: none;
 }
 
-.master-card .card-image {
+.card-image-wrap {
     width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;
 }
 
-.master-card .card-image img {
+.card-image-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -291,14 +291,14 @@ a:hover {
     transition: filter 0.5s ease, transform 0.5s ease;
 }
 
-.master-card:hover .card-image img {
+.master-card:hover .card-image-wrap img {
     filter: grayscale(0%);
     transform: scale(1.05);
 }
 
 .card-tag {
     position: absolute;
-    bottom: 20px;
+    top: 20px;
     left: 20px;
     background: var(--ink);
     color: var(--paper);
@@ -316,23 +316,25 @@ a:hover {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 30px 20px 20px;
+    padding: clamp(15px, 3vw, 30px) clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px);
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
     color: var(--paper);
     z-index: 2;
 }
 
 .card-info h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
     font-weight: 700;
     letter-spacing: 2px;
+    margin-bottom: 2px;
 }
 
 .card-info p {
     font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
     opacity: 0.8;
     letter-spacing: 1px;
+    margin: 0;
 }
 
 .card-year {
@@ -348,7 +350,7 @@ a:hover {
     z-index: 2;
 }
 
-/* МОДАЛЬНЫЕ ОКНА */
+/* МОДАЛКА */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -360,7 +362,7 @@ a:hover {
     display: none;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 20px;
 }
 
 .modal-overlay.active {
@@ -379,10 +381,9 @@ a:hover {
 }
 
 .modal-close {
-    position: sticky;
-    top: 10px;
-    float: right;
-    margin: 10px 10px 0 0;
+    position: absolute;
+    top: 15px;
+    right: 15px;
     background: var(--ink);
     color: var(--paper);
     border: 2px solid var(--paper);
@@ -393,6 +394,9 @@ a:hover {
     z-index: 10;
     transition: all 0.3s ease;
     font-family: 'Courier New', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-close:hover {
@@ -402,22 +406,24 @@ a:hover {
 
 .modal-image {
     width: 100%;
-    height: 400px;
+    height: clamp(200px, 40vh, 400px);
     overflow: hidden;
+    background: var(--ink);
 }
 
 .modal-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background: var(--ink);
 }
 
 .modal-info {
-    padding: 40px;
+    padding: clamp(20px, 4vw, 40px);
 }
 
 .modal-info h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     font-weight: 700;
     letter-spacing: 3px;
     margin-bottom: 5px;
@@ -425,10 +431,12 @@ a:hover {
 
 .modal-craft {
     font-family: 'Courier New', monospace;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
     color: var(--accent);
     letter-spacing: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
 }
 
 .modal-year {
@@ -439,7 +447,7 @@ a:hover {
 }
 
 .modal-description {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
     line-height: 1.8;
     margin-bottom: 20px;
 }
@@ -461,108 +469,144 @@ a:hover {
 }
 
 /* СТРАНИЦА МАСТЕРСКОЙ */
-.workshop-container {
-    position: relative;
+.workshop-hero {
     width: 100%;
-    height: 80vh;
-    background: var(--ink);
-    overflow: hidden;
-}
-
-.workshop-scene {
-    width: 100%;
-    height: 100%;
+    height: clamp(40vh, 60vh, 70vh);
     background-size: cover;
     background-position: center;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hotspot {
+.workshop-hero-overlay {
     position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    border: 3px solid var(--paper);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.hotspot::before {
-    content: '+';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--paper);
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.hotspot:hover {
-    background: rgba(255, 255, 255, 0.6);
-    transform: scale(1.2);
-    z-index: 10;
-}
-
-.hotspot:hover .tooltip {
-    display: block;
-}
-
-.tooltip {
-    display: none;
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--paper);
-    color: var(--ink);
-    padding: 15px;
-    border: 3px solid var(--ink);
-    min-width: 200px;
-    font-size: 0.9rem;
-    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
-    z-index: 20;
-}
-
-.tooltip img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    margin-bottom: 10px;
-    border: 2px solid var(--ink);
-}
-
-.tooltip strong {
-    display: block;
-    font-size: 1rem;
-    letter-spacing: 1px;
-}
-
-.workshop-foreground {
-    position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 40%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.workshop-hero-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--paper);
+    padding: 20px;
+}
+
+.workshop-hero-text h2 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: 10px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.workshop-hero-text p {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+    letter-spacing: 3px;
+    opacity: 0.8;
+}
+
+.tools-section {
+    padding: clamp(30px, 6vw, 60px) clamp(20px, 4vw, 40px);
+    background: var(--paper);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tools-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    letter-spacing: 6px;
+    font-weight: 700;
+    border-bottom: 4px solid var(--ink);
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.tool-card {
+    background: var(--paper);
+    border: 4px solid var(--ink);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 0 var(--accent);
+}
+
+.tool-image {
+    width: 100%;
+    height: clamp(180px, 25vw, 250px);
+    overflow: hidden;
+    background: var(--ink);
+}
+
+.tool-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.tool-card:hover .tool-image img {
+    transform: scale(1.05);
+}
+
+.tool-info {
+    padding: clamp(15px, 2vw, 20px);
+}
+
+.tool-info h3 {
+    font-size: clamp(1rem, 1.3vw, 1.3rem);
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.tool-info p {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+    opacity: 0.7;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.tool-desc {
+    font-size: clamp(0.85rem, 0.95vw, 0.95rem);
+    opacity: 0.8;
+    display: block;
+    border-top: 2px solid var(--accent);
+    padding-top: 10px;
+}
+
+.tools-action {
+    text-align: center;
+    margin-top: 50px;
 }
 
 .btn-process {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 20px 45px;
+    display: inline-block;
+    padding: clamp(15px, 2vw, 20px) clamp(25px, 4vw, 45px);
     background: var(--accent);
     color: var(--paper);
     font-family: 'Courier New', monospace;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 1vw, 1rem);
     letter-spacing: 3px;
-    border: 4px solid var(--paper);
+    border: 4px solid var(--ink);
     text-decoration: none;
-    z-index: 20;
     transition: all 0.3s ease;
     box-shadow: 10px 10px 0 var(--ink);
     cursor: pointer;
@@ -577,13 +621,13 @@ a:hover {
 
 /* СТРАНИЦА АРХИВА */
 .archive-section {
-    padding: 40px;
+    padding: clamp(20px, 4vw, 40px);
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .archive-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     font-weight: 700;
     letter-spacing: 6px;
     border-bottom: 4px solid var(--ink);
@@ -594,24 +638,24 @@ a:hover {
 .audio-player {
     background: var(--paper);
     border: 4px solid var(--ink);
-    padding: 30px;
+    padding: clamp(15px, 3vw, 30px);
     margin-bottom: 30px;
     box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .audio-player h3 {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 1.3vw, 1.3rem);
     letter-spacing: 2px;
     margin-bottom: 15px;
 }
 
 .audio-play-btn {
-    padding: 10px 24px;
+    padding: clamp(8px, 1vw, 10px) clamp(15px, 2vw, 24px);
     background: var(--ink);
     color: var(--paper);
     border: 2px solid var(--paper);
     font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
+    font-size: clamp(0.65rem, 0.8vw, 0.8rem);
     font-weight: 700;
     letter-spacing: 2px;
     cursor: pointer;
@@ -627,7 +671,7 @@ a:hover {
     display: flex;
     gap: 4px;
     align-items: flex-end;
-    height: 60px;
+    height: clamp(40px, 6vh, 60px);
     margin: 20px 0;
     padding: 10px;
     background: var(--ink);
@@ -669,7 +713,7 @@ a:hover {
 }
 
 .texture-item {
-    height: 250px;
+    height: clamp(180px, 25vw, 250px);
     background-size: cover;
     background-position: center;
     border: 4px solid var(--ink);
@@ -693,7 +737,7 @@ a:hover {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
     color: var(--paper);
     font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 0.8vw, 0.8rem);
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -702,7 +746,7 @@ a:hover {
 .footer-brutal {
     background: var(--ink);
     color: var(--paper);
-    padding: 40px 40px 20px;
+    padding: clamp(20px, 4vw, 40px) clamp(20px, 4vw, 40px) clamp(15px, 2vw, 20px);
     border-top: 6px solid var(--accent);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -712,14 +756,14 @@ a:hover {
 
 .footer-brutal__left {
     font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
+    font-size: clamp(0.6rem, 0.8vw, 0.8rem);
     letter-spacing: 2px;
     opacity: 0.7;
 }
 
 .footer-brutal__right {
     font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
+    font-size: clamp(0.6rem, 0.8vw, 0.8rem);
     letter-spacing: 2px;
     opacity: 0.7;
     text-align: center;
@@ -727,7 +771,7 @@ a:hover {
 
 .footer-brutal__credit {
     font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
+    font-size: clamp(0.6rem, 0.8vw, 0.8rem);
     letter-spacing: 1px;
     text-align: right;
 }
@@ -743,7 +787,11 @@ a:hover {
     border-bottom-color: var(--paper);
 }
 
-/* АДАПТИВНОСТЬ */
+/* ============================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+   ============================================ */
+
+/* Планшеты (до 1024px) */
 @media (max-width: 1024px) {
     .cards {
         grid-template-columns: 1fr;
@@ -790,25 +838,29 @@ a:hover {
     }
 }
 
+/* Телефоны (до 768px) */
 @media (max-width: 768px) {
     .page-header {
-        padding: 20px;
+        padding: 20px 15px;
     }
     
     .back-link {
         position: static;
         display: inline-block;
         margin-bottom: 15px;
+        font-size: 0.7rem;
+        padding: 4px 10px;
     }
     
     .filter-bar {
-        padding: 15px;
+        padding: 10px 10px;
         gap: 3px;
     }
     
     .filter-btn {
-        padding: 6px 12px;
-        font-size: 0.65rem;
+        padding: 4px 10px;
+        font-size: 0.55rem;
+        letter-spacing: 1px;
     }
     
     .masters-grid {
@@ -816,7 +868,7 @@ a:hover {
     }
     
     .master-card {
-        height: 50vh;
+        height: 45vh;
         border-right: none;
     }
     
@@ -825,663 +877,219 @@ a:hover {
     }
     
     .texture-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
     }
     
     .texture-item {
-        height: 200px;
+        height: 150px;
     }
     
     .archive-section {
-        padding: 20px;
+        padding: 15px;
     }
     
     .audio-player {
-        padding: 20px;
+        padding: 15px;
     }
     
-    .workshop-container {
-        height: 60vh;
+    .audio-visualizer {
+        height: 30px;
+        padding: 5px;
     }
     
-    .hotspot {
-        width: 40px;
-        height: 40px;
+    .workshop-hero {
+        height: 35vh;
     }
     
-    .hotspot::before {
-        font-size: 1.5rem;
+    .workshop-hero-text h2 {
+        font-size: 2rem;
+        letter-spacing: 5px;
     }
     
-    .tooltip {
-        min-width: 150px;
-        bottom: 60px;
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .tools-section {
+        padding: 20px 15px;
+    }
+    
+    .tool-image {
+        height: 180px;
     }
     
     .btn-process {
-        padding: 15px 25px;
-        font-size: 0.8rem;
-    }
-    
-    .modal-info {
-        padding: 20px;
-    }
-    
-    .modal-info h2 {
-        font-size: 1.8rem;
-    }
-    
-    .quote-section {
-        padding: 40px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.5rem;
-        letter-spacing: 4px;
-    }
-    
-    .card-title {
-        font-size: 1.8rem;
-        letter-spacing: 4px;
-        bottom: 20px;
-    }
-    
-    .card {
-        height: 40vh;
-    }
-    
-    .filter-btn {
-        padding: 4px 10px;
-        font-size: 0.55rem;
-    }
-    
-    .master-card {
-        height: 40vh;
+        padding: 12px 20px;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        box-shadow: 6px 6px 0 var(--ink);
     }
     
     .modal-image {
         height: 180px;
     }
-}
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 1000;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-}
-
-.modal-overlay.active {
-    display: flex;
-}
-
-.modal-content {
-    background: var(--paper);
-    max-width: 800px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    border: 6px solid var(--ink);
-    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.3);
-}
-
-.modal-close {
-    position: sticky;
-    top: 10px;
-    float: right;
-    margin: 10px 10px 0 0;
-    background: var(--ink);
-    color: var(--paper);
-    border: 2px solid var(--paper);
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    font-family: 'Courier New', monospace;
-}
-
-.modal-close:hover {
-    background: var(--accent);
-    transform: rotate(90deg);
-}
-
-.modal-image {
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-}
-
-.modal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.modal-info {
-    padding: 40px;
-}
-
-.modal-info h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin-bottom: 5px;
-}
-
-.modal-craft {
-    font-family: 'Courier New', monospace;
-    font-size: 1.1rem;
-    color: var(--accent);
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 10px;
-}
-
-.modal-year {
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    opacity: 0.7;
-    margin-bottom: 20px;
-}
-
-.modal-description {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-.modal-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.modal-tag {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 4px 14px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.master-card {
-    position: relative;
-    height: 60vh;
-    overflow: hidden;
-    cursor: pointer;
-    border-right: 3px solid var(--ink);
-    border-bottom: 3px solid var(--ink);
-}
-
-.master-card:nth-child(3n) {
-    border-right: none;
-}
-
-.card-image-wrap {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.card-image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(50%);
-    transition: filter 0.5s ease, transform 0.5s ease;
-}
-
-.master-card:hover .card-image-wrap img {
-    filter: grayscale(0%);
-    transform: scale(1.05);
-}
-
-.card-tag {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background: var(--ink);
-    color: var(--paper);
-    padding: 4px 14px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border: 2px solid var(--paper);
-    z-index: 2;
-}
-
-.card-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px 20px 20px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    color: var(--paper);
-    z-index: 2;
-}
-
-.card-info h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 2px;
-}
-
-.card-info p {
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    opacity: 0.8;
-    letter-spacing: 1px;
-    margin: 0;
-}
-
-.card-year {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: var(--paper);
-    color: var(--ink);
-    padding: 4px 12px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
-    font-weight: 700;
-    z-index: 2;
-}
-
-/* МОДАЛКА */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 1000;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-}
-
-.modal-overlay.active {
-    display: flex;
-}
-
-.modal-content {
-    background: var(--paper);
-    max-width: 800px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    border: 6px solid var(--ink);
-    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.3);
-}
-
-.modal-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--ink);
-    color: var(--paper);
-    border: 2px solid var(--paper);
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    font-family: 'Courier New', monospace;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-close:hover {
-    background: var(--accent);
-    transform: rotate(90deg);
-}
-
-.modal-image {
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-    background: var(--ink);
-}
-
-.modal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: var(--ink);
-}
-
-.modal-info {
-    padding: 40px;
-}
-
-.modal-info h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin-bottom: 5px;
-}
-
-.modal-craft {
-    font-family: 'Courier New', monospace;
-    font-size: 1.1rem;
-    color: var(--accent);
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--accent);
-}
-
-.modal-year {
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    opacity: 0.7;
-    margin-bottom: 20px;
-}
-
-.modal-description {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-.modal-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.modal-tag {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 4px 14px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.hotspot {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    border: 3px solid var(--paper);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 5;
-}
-
-.hotspot::before {
-    content: '+';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--paper);
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-
-.hotspot:hover,
-.hotspot.active {
-    background: rgba(255, 255, 255, 0.6);
-    transform: scale(1.2);
-    z-index: 10;
-}
-
-.hotspot:hover .tooltip,
-.hotspot.active .tooltip {
-    display: block;
-}
-
-.tooltip {
-    display: none;
-    position: absolute;
-    bottom: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--paper);
-    color: var(--ink);
-    padding: 15px;
-    border: 3px solid var(--ink);
-    min-width: 200px;
-    font-size: 0.9rem;
-    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
-    z-index: 20;
-}
-
-.tooltip img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    margin-bottom: 10px;
-    border: 2px solid var(--ink);
-}
-
-.tooltip strong {
-    display: block;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-}
-
-.tooltip span {
-    font-size: 0.8rem;
-    opacity: 0.7;
-    font-family: 'Courier New', monospace;
-}
-/* СТРАНИЦА МАСТЕРСКОЙ - НОВАЯ ВЕРСИЯ */
-.workshop-hero {
-    width: 100%;
-    height: 60vh;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.workshop-hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.workshop-hero-text {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: var(--paper);
-}
-
-.workshop-hero-text h2 {
-    font-size: 4rem;
-    letter-spacing: 10px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.workshop-hero-text p {
-    font-family: 'Courier New', monospace;
-    font-size: 1.2rem;
-    letter-spacing: 3px;
-    opacity: 0.8;
-}
-
-.tools-section {
-    padding: 60px 40px;
-    background: var(--paper);
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.tools-title {
-    font-size: 2rem;
-    letter-spacing: 6px;
-    font-weight: 700;
-    border-bottom: 4px solid var(--ink);
-    padding-bottom: 15px;
-    margin-bottom: 40px;
-}
-
-.tools-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.tool-card {
-    background: var(--paper);
-    border: 4px solid var(--ink);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
-}
-
-.tool-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 12px 12px 0 var(--accent);
-}
-
-.tool-image {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    background: var(--ink);
-}
-
-.tool-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.tool-card:hover .tool-image img {
-    transform: scale(1.05);
-}
-
-.tool-info {
-    padding: 20px;
-}
-
-.tool-info h3 {
-    font-size: 1.3rem;
-    letter-spacing: 2px;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.tool-info p {
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    opacity: 0.7;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-}
-
-.tool-desc {
-    font-size: 0.95rem;
-    opacity: 0.8;
-    display: block;
-    border-top: 2px solid var(--accent);
-    padding-top: 10px;
-}
-
-.tools-action {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.btn-process {
-    display: inline-block;
-    padding: 20px 45px;
-    background: var(--accent);
-    color: var(--paper);
-    font-family: 'Courier New', monospace;
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 3px;
-    border: 4px solid var(--ink);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 10px 10px 0 var(--ink);
-    cursor: pointer;
-}
-
-.btn-process:hover {
-    background: var(--paper);
-    color: var(--ink);
-    border-color: var(--ink);
-    box-shadow: 14px 14px 0 var(--accent);
-}
-
-@media (max-width: 768px) {
-    .workshop-hero {
-        height: 40vh;
+    
+    .modal-info {
+        padding: 15px;
     }
     
-    .workshop-hero-text h2 {
+    .modal-info h2 {
+        font-size: 1.5rem;
+    }
+    
+    .modal-close {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .quote-section {
+        padding: 30px 15px;
+    }
+    
+    .card {
+        height: 35vh;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+        bottom: 15px;
+    }
+    
+    .card-number {
+        font-size: 1.2rem;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .hero-title {
         font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+}
+
+/* Маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
     }
     
-    .tools-grid {
+    .card {
+        height: 30vh;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+        letter-spacing: 3px;
+        bottom: 10px;
+    }
+    
+    .master-card {
+        height: 35vh;
+    }
+    
+    .card-info h3 {
+        font-size: 0.9rem;
+    }
+    
+    .card-info p {
+        font-size: 0.6rem;
+    }
+    
+    .card-year {
+        font-size: 0.6rem;
+        padding: 2px 8px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .card-tag {
+        font-size: 0.5rem;
+        padding: 2px 8px;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .filter-btn {
+        padding: 3px 6px;
+        font-size: 0.45rem;
+        letter-spacing: 0.5px;
+        border-width: 1px;
+    }
+    
+    .texture-grid {
         grid-template-columns: 1fr;
     }
     
-    .tools-section {
-        padding: 30px 20px;
+    .texture-item {
+        height: 120px;
+    }
+    
+    .texture-item::after {
+        font-size: 0.6rem;
+        padding: 8px;
+    }
+    
+    .workshop-hero {
+        height: 25vh;
+    }
+    
+    .workshop-hero-text h2 {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+    }
+    
+    .workshop-hero-text p {
+        font-size: 0.7rem;
     }
     
     .tool-image {
-        height: 200px;
+        height: 150px;
     }
-}
-.audio-play-btn {
-    padding: 10px 24px;
-    background: var(--ink);
-    color: var(--paper);
-    border: 2px solid var(--paper);
-    font-family: 'Courier New', monospace;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.audio-play-btn:hover {
-    background: var(--accent);
-    transform: scale(1.05);
-}
-
-.audio-play-btn.playing {
-    background: var(--accent);
-    border-color: var(--accent);
+    
+    .tool-info h3 {
+        font-size: 0.9rem;
+    }
+    
+    .modal-image {
+        height: 140px;
+    }
+    
+    .modal-info h2 {
+        font-size: 1.2rem;
+    }
+    
+    .modal-craft {
+        font-size: 0.8rem;
+    }
+    
+    .modal-description {
+        font-size: 0.85rem;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+    }
+    
+    .archive-title {
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+    }
+    
+    .audio-player h3 {
+        font-size: 0.85rem;
+    }
+    
+    .footer-brutal__left,
+    .footer-brutal__right,
+    .footer-brutal__credit {
+        font-size: 0.5rem;
+    }
 }
